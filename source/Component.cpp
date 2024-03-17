@@ -1,0 +1,1 @@
+#include "objcomp/Component.h"
