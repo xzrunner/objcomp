@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.16)
 
 project(objcomp)
 
@@ -28,9 +28,6 @@ set(ALL_FILES
     ${Sources}
 )
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(../guard/include)
+add_library(${PROJECT_NAME} STATIC ${ALL_FILES})
 
-add_library(objcomp STATIC ${ALL_FILES})
-
-#target_compile_features(brepdb PRIVATE cxx_std_17)
+target_include_directories(${PROJECT_NAME} PRIVATE include external/guard/include)
